@@ -1,0 +1,181 @@
+:root {
+    --visible: hidden;
+}
+
+body {
+    background: hsl(27, 66%, 92%);
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 90vh;
+    max-width: 1440px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.balance {
+    display: flex;
+    flex-direction: row;
+    width: inherit;
+    height: 95px;
+    align-items: center;
+    justify-content: space-between;
+    background: hsl(10, 79%, 65%);
+    border-radius: 10px;
+    color: white;
+
+}
+
+.my_balance {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+}
+
+.heading {
+    font-size: 12px;
+    margin: 0px;
+
+}
+
+.bal_des {
+    margin: 0px;
+}
+
+.balance_img {
+    margin-right: 20px;
+
+}
+
+.graph {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: hsl(33, 100%, 98%);
+    border-radius: 10px;
+}
+
+
+.heading_grp {
+    margin: 20px;
+
+}
+
+.graph_grp { 
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    margin: 0px 15px;
+
+}
+
+.graph_part_amount {
+    text-align: center;
+    border-radius: 5px; 
+    background: black; 
+    color: white; 
+    height: 30px; 
+    width: 45px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+
+}
+
+.graph_part_2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+}
+
+.graph_part_2:hover {
+    visibility: visible !important;
+
+}
+
+.graph_part_img {
+    width: 37px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    visibility: visible;
+}
+
+.graph_part_img:hover {
+    opacity: 0.6;
+    
+}
+
+
+.graph_part_name {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.div_hr_grp {
+    align-self: center;
+    width: 90%;
+    color: hsl(27, 66%, 92%);
+}
+
+.hr_grp {
+
+}
+
+.total_grp {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 15px;
+}
+
+.total_money {
+    display: flex;
+    flex-direction: column;;
+}
+
+.total_des {
+    font-size: 12px;
+}   
+
+.total_head {
+    margin: 0px;
+
+}
+
+.percent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.percent_head {
+    margin: 0px;
+}
+
+.percent_des {
+    font-size: 12px;
+}
+
+@media (max-width: 425px) {
+    .container {
+        width: 350px;
+    }
+}

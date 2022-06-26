@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+
+  <title>Frontend Mentor | Expenses chart component</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main class="container" role="main">
+    <div class="balance" role="balanceHead">
+      <div class="my_balance">
+        <div class="heading">
+          My Balance
+        </div>
+        <h2 class="bal_des">
+          $921.48
+        </h2>
+      </div>
+      <div class="balance_img">
+        <img src="./images/logo.svg" alt="balance_logo">
+      </div>
+    </div>
+    <div class="graph" role="Spending">
+      <h2 class="heading_grp">
+        Spending - Last 7 days
+      </h2>
+      <div class="graph_grp" id="main_g">
+
+        <!--
+          GRAPH.
+          GRAPH..
+          GRAPH...
+          GRAPH....
+        -->
+
+      </div>
+        <script type="text/javascript">
+
+          fetch('./data.json')
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (data) {
+              drawGraph(data);
+            })
+            .catch(function (err){
+              console.log(err);
+            });
+
+          function drawGraph(data) {
+
+            let orange = "hsl(10, 79%, 65%)";
+            let blue = "hsl(186, 34%, 60%)";
+
+            let colors = [orange, orange, blue, orange, orange, orange, orange];
+
+            let mainGraph = document.getElementById("main_g");
+
+            for (let i = 0; i < data.length; i++) {
+              let mainGraphPart = document.createElement("div");
+
+              let mainGraphPart2 = document.createElement("div");
+              mainGraphPart2.className = "graph_part_2";
+              mainGraphPart2.id = data[i].day + "_2";
+
+              let div_amount = document.createElement("div");
+              div_amount.className = "graph_part_amount";
+              div_amount.id = data[i].day + "_amt";
+              div_amount.innerHTML = "$" + data[i].amount;
+              mainGraphPart2.appendChild(div_amount);
+
+              let div_shade = document.createElement("div");
+              div_shade.className = "graph_part_img";
+              div_shade.id = data[i].day + "_img";
+              div_shade.style = ("background: " + colors[i] + "; height: " + String(data[i].amount * 2) + "px;");
+              mainGraphPart2.appendChild(div_shade);
+
+              mainGraphPart.appendChild(mainGraphPart2);
+
+              let div_g = document.createElement("div");
+              div_g.className = "graph_part" + "_name";
+              div_g.id = data[i].day + "_name";
+              div_g.style = "";
+              div_g.innerHTML = data[i].day;
+              mainGraphPart.appendChild(div_g);
+
+              mainGraph.appendChild(mainGraphPart);
+            }
+          }
+
+          function mouseOver(id) {
+            document.getElementById(id).style = "visibility: show;";
+          }
+
+        </script>
+      <div class="div_hr_grp">
+        <hr class="hr_grp">
+      </div>
+      <div class="total_grp">
+        <div class="total_money">
+          <div class="total_des">
+            Total this month
+          </div>
+          <h1 class="total_head">
+            $478.33
+          </h1>
+        </div>
+        <div class="percent" role="percent">
+          <h3 class="percent_head">
+            +2.4%
+          </h3>
+          <div class="percent_des">
+            from last month
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="attribution" role="footnote">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.github.com/biscuitcandy">BiscuitCandy</a>.
+  </footer>
+</body>
+</html>
